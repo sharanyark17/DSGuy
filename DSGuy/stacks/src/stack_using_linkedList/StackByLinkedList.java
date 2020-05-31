@@ -1,5 +1,6 @@
-package linkedLists;
+package stack_using_linkedList;
 
+import linkedLists.SingleLinkedList;
 import node.SingleNode;
 
 public class StackByLinkedList {

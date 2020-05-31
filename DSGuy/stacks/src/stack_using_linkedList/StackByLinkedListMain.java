@@ -1,4 +1,4 @@
-package linkedLists;
+package stack_using_linkedList;
 
 public class StackByLinkedListMain {
 
