@@ -71,20 +71,17 @@ public class SingleLinkedList {
 	public void traverseLinkedList()
 	{
 		if (existsLinkedList()) {
-			
+
 			SingleNode tempNode = head;
-			
-			for(int i = 0; i < getSize() ; i++)
-			{
+
+			for (int i = 0; i < getSize(); i++) {
 				System.out.print(tempNode.getValue());
 				if (i < getSize() - 1) {
 					System.out.print("->");
 				}
-				tempNode= tempNode.getNext();
+				tempNode = tempNode.getNext();
 			}
-		}
-		else
-		{
+		} else {
 			System.out.println("temp node doesn't exist");
 		}
 		System.out.println("\n");
@@ -93,21 +90,18 @@ public class SingleLinkedList {
 	// 5. Search a node for given value
 	public boolean searchNode(int value)
 	{
-		if(existsLinkedList())
-		{
+		if (existsLinkedList()) {
 			SingleNode tempNode = head;
-			for(int i=0; i < getSize()-1 ; i++)
-			{
-				if(tempNode.getValue() == value)
-				{
-					System.out.println("found this value at location"+i);
+			for (int i = 0; i < getSize() - 1; i++) {
+				if (tempNode.getValue() == value) {
+					System.out.println("found this value at location" + i);
 					return true;
-					
+
 				}
 				tempNode = tempNode.getNext();
 			}
 		}
-		
+
 		System.out.println("could not find that node");
 		return false;
 	}
@@ -123,45 +117,37 @@ public class SingleLinkedList {
 	//7. Delete a node from a Linked List
 	public void deletionOfNode(int location)
 	{
-		if(existsLinkedList())
-		{
+		if (existsLinkedList()) {
 			// a. if node is inbetween or if node is last node
 			SingleNode tempNode = head;
-			if(location <= getSize() -1)
-			{
+			if (location == 0) {
+				if (getSize() == 1) {
+					setHead(null);
+				}
+				else {
+				head = head.getNext();
+				}
+
+			}
+				else if (location <= getSize() - 1 && location!= 0) {
 				int index = 0;
 				while (index < location) {
 					tempNode = tempNode.getNext();
 					index++;
 				}
 
-				if(location < getSize() -1)
-				tempNode.setNext(tempNode.getNext().getNext());
+				if (location < getSize() - 1)
+					tempNode.setNext(tempNode.getNext().getNext());
 				// node.setNext(null);
-				if(location == getSize() - 1)
-				{
+				if (location == getSize() - 1) {
 					tempNode.setNext(null);
 					tail = tempNode;
 				}
-					
-			}
-			// b. if node is in the beginning
-			else if(location == 0)
-			{
-				if(getSize() == 1)
-				{
-					
-				}
-			head.setNext(head.getNext().getNext());
-			
+
 			}
 			
-			
-			
-			
-		}
-		else
-		{
+			setSize(getSize() -1);
+		} else {
 			System.out.println("LL doesn't exist");
 		}
 	}
